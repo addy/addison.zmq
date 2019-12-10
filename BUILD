@@ -7,12 +7,12 @@ java_library(
 
 java_binary(
   name = "Server",
-  srcs = ["src/main/java/addison/addison/zmq/Server.java"],
+  srcs = ["src/main/java/addison/Server.java"],
   deps = [":jeromq"],
 )
 
 java_binary(
   name = "Client",
-  srcs = glob(["src/main/java/addison/addison/zmq/Client*.java"]),
+  srcs = glob(["src/main/java/addison/Client*.java"]),
   deps = [":jeromq"],
 )

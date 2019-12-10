@@ -6,7 +6,7 @@ Java ZeroMQ Client/Server Implementation
 
 ## Building
 ```
-bazel build \\:Server && bazel build \\:Client
+bazel build //:Server && bazel build //:Client
 ```
 
 ## Running
