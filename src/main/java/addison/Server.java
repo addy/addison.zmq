@@ -1,4 +1,4 @@
-package addison.addison.zmq;
+package addison;
 
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;
@@ -12,23 +12,14 @@ public class Server
       {
          // Socket to talk to clients
          ZMQ.Socket socket = context.createSocket(SocketType.REP);
-         socket.bind("tcp://*:5555");
+         socket.bind("tcp://*:22317");
 
          while (!Thread.currentThread().isInterrupted())
          {
             byte[] reply = socket.recv(0);
             System.out.println("Received " + ": [" + new String(reply, ZMQ.CHARSET) + "]");
-
-            String response = "world";
-            socket.send(response.getBytes(ZMQ.CHARSET), 0);
-
-            Thread.sleep(1000); // Do some 'work'
+            socket.send(reply, 0);
          }
-      }
-      catch (InterruptedException e)
-      {
-         System.out.println("Couldn't sleep lol.");
-         e.printStackTrace();
       }
    }
 }
